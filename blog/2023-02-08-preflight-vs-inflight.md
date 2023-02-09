@@ -1,19 +1,16 @@
 ---
 title: "The Great Divide: Preflight vs Inflight Resource Creation ⚔️"
-description: Why does Wing only let you create resources in preflight?
+description: Why should you create resources ONLY in preflight?
 authors: 
   - rybickic
 tags: [cloud-oriented programming, winglang, resources, preflight, inflight, iac, security]
 hide_table_of_contents: true
 ---
 
-Wing is a cloud-oriented programming language we’re building that aims to break
-down the barriers that get in the way of building applications using cloud
-services, and bring back the flow for developers.
 
-One of the main features of Wing is that it distinguishes between "preflight
+While we're building Wing {link} we decided to distinguishe between "preflight
 code" (code that defines your cloud infrastructure, and runs as part of
-compilation) and "inflight code" (code that runs in the cloud, at runtime). We
+compilation) and "inflight code" (code that runs in the cloud, at runtime).Why?? We
 believe this distinction –- and the ability to write code that reaches across the
 preflight-inflight boundary using safe abstractions –- makes it easier to build
 scalable cloud applications, both by encouraging best practices, and helping
@@ -28,9 +25,9 @@ get a compiler error:
 Error: Cannot create the resource "Bucket" in inflight phase.
 ```
 
-**So why doesn’t Wing let you create resources while inflight?**
+**So why shouldn't you create resources while inflight?**
 
-Even though Wing makes a distinction between preflight and inflight operations
+Even though we make a distinction between preflight and inflight operations
 (like creating a bucket versus putting an object inside a bucket), most cloud
 providers typically don't make this same distinction in their APIs.
 
@@ -110,7 +107,7 @@ accesses are logged and audited).
 
 ## Closing thoughts
 
-For all these reasons, Wing's design encourages developers to create resources
+For all these reasons, our design encourages developers to create resources
 in preflight as the path of [least
 friction](./2023-02-02-good-cognitive-friction.md). Since Wing will let you make
 network requests or make calls into JavaScript or TypeScript libraries in
@@ -125,3 +122,8 @@ design -- and if you have a use case where dynamically creating resources would
 be useful, please share it with us through a [GitHub
 issue](https://github.com/winglang/wing/issues/new/choose) or on this blog's
 [discussion post](https://github.com/winglang/wing/discussions/1490)!
+
+
+Wing is a cloud-oriented programming language that aims to break
+down the barriers in the way of building applications using cloud
+services, and bring back the flow for developers.
